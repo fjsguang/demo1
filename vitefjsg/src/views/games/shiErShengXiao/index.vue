@@ -1,7 +1,6 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useStore } from "@/stores/store";
-
 import("./iconfont.js");
 
 const {
