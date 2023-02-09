@@ -1,0 +1,1 @@
+import{_ as o,r as t,o as n,c,w as r,a}from"./index-9c547361.js";const s={};function _(f,i){const e=t("RouterLink");return n(),c(e,{to:"/games"},{default:r(()=>[a("小游戏")]),_:1})}const m=o(s,[["render",_]]);export{m as default};
