@@ -33,8 +33,8 @@ export const useStore = defineStore("store", () => {
     const maxlength = ref(6);
 
     // 卡片集合
-    const mainList = ref([]);
-    const moveList = ref([]);
+    const mainList = ref();
+    const moveList = ref();
 
     // 每种有几组 比如此时18个老鼠
     const group = computed(() => cols.value * oneGroupCount.value);

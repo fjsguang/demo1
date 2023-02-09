@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import shiershengxiaoSrc from "./images/shiershengxiao.png";
+import shiershengxiaoSrc from "./images/shiershengxiao.jpeg";
 const router = useRouter();
 const route = useRoute();
 const gamelist = reactive([

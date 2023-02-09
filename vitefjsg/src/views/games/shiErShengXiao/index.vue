@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { useStore } from "@/stores/store";
-import("./iconfont.js");
+import "./iconfont.js";
 
 const {
     simpleDate, //基础数据
@@ -17,7 +17,7 @@ const {
     renderDate, // 当前操作数据
     layerCount, // 层数
 } = storeToRefs(useStore());
-let main, move;
+let main: HTMLElement, move: HTMLElement;
 
 onMounted(() => {
     init();
@@ -32,8 +32,8 @@ function init() {
     });
 }
 function setWidthHeight() {
-    main = document.querySelector(".main");
-    move = document.querySelector(".move");
+    main = document.querySelector(".main") as HTMLElement;
+    move = document.querySelector(".move") as HTMLElement;
     main.style.height = `${size.value * rows.value + size.value * 2}px`;
     main.style.width = `${size.value * cols.value}px`;
     move.style.height = `${size.value}px`;
@@ -42,7 +42,7 @@ function setWidthHeight() {
 
 // 初始化所有的数据
 function setRenderDate() {
-    // mainList.value = [];
+    mainList.value = [];
     for (let ly = layerCount.value; ly > 0; ly--) {
         for (let i = 0; i < rows.value; i++) {
             for (let j = 0; j < cols.value; j++) {
@@ -123,14 +123,14 @@ function moveClick(item, index, e) {
     let top = move.offsetTop - size.value / 2 - 4;
 
     if (moveList.value.length > 0) {
-        let el = move.lastElementChild;
+        let el = move.lastElementChild as HTMLElement;
         left = el.offsetLeft + size.value;
     }
 
     me.style.top = `${top}px`;
     me.style.left = `${left}px`;
     me.transitionNamesCount = 0;
-    me.ontransitionend = e => {
+    me.ontransitionend = () => {
         me.transitionNamesCount++;
         if (me.transitionNamesCount === 2) {
             moveEnd(item, index, me);
