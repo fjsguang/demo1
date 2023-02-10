@@ -1,0 +1,1 @@
+import{_ as o,r as a,a as n,c as r,e,f as c,w as s,F as _}from"./index-16413827.js";const m={};function f(l,u){const t=a("RouterLink");return n(),r(_,null,[e(" 欢迎来到风之大陆 "),c(t,{to:"/games"},{default:s(()=>[e("小游戏")]),_:1})],64)}const i=o(m,[["render",f]]);export{i as default};
