@@ -43,6 +43,7 @@ function setWidthHeight() {
 // 初始化所有的数据
 function setRenderDate() {
     mainList.value = [];
+    moveList.value = [];
     for (let ly = layerCount.value; ly > 0; ly--) {
         for (let i = 0; i < rows.value; i++) {
             for (let j = 0; j < cols.value; j++) {
@@ -150,7 +151,7 @@ function moveEnd(item, index, me) {
 
         if (findResult.length >= 3) {
             for (let i = moveList.value.length - 1; i >= 0; i--) {
-                if (moveList.value[i].name === item.name) {
+                if (moveList[i].name === item.name) {
                     moveList.value.splice(i, 1);
                 }
             }
