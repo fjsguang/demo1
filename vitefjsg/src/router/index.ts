@@ -5,6 +5,7 @@ const routes = [
         path: "/",
         name: "DongHua",
         component: () => import("@/views/Home/index.vue"),
+        meta: { title: "Loading..." },
     },
     {
         path: "/home",
