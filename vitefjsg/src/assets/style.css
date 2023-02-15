@@ -1,25 +1,38 @@
 :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "danfeng";
+  src: url("./font/danfeng.ttf");
+}
+@font-face {
+  font-family: "xingkai";
+  src: url("./font/xingkai.ttf");
 }
 
 a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
 a:hover {
-    color: #535bf2;
+  color: #535bf2;
 }
 
 body {
-    min-width: 320px;
-    min-height: 100vh;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: cursive;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }

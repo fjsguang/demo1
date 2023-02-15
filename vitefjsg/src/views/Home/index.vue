@@ -2,7 +2,7 @@
 const router = useRouter();
 onMounted(() => {
     setTimeout(() => {
-        router.push("/home");
+        router.replace("/home");
     }, 2000);
 });
 </script>

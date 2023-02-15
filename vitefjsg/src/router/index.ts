@@ -1,42 +1,50 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
-    {
-        path: "/",
-        name: "DongHua",
-        component: () => import("@/views/Home/index.vue"),
-        meta: { title: "Loading..." },
-    },
-    {
-        path: "/home",
-        name: "Home",
-        component: () => import("@/views/Home/Home.vue"),
-    },
-    {
-        path: "/games",
-        name: "Game",
-        component: () => import("@/views/games/index.vue"),
-        children: [
-            {
-                path: "shiershengxiao",
-                name: "ShiErShengXiao",
-                component: () => import("@/views/games/shiErShengXiao/index.vue"),
-                meta: { title: "十二生肖总动员" },
-            },
-        ],
-    },
+  {
+    path: "/",
+    name: "DongHua",
+    component: () => import("@/views/Home/index.vue"),
+    meta: { title: "Loading..." },
+  },
+  {
+    path: "/home",
+    name: "Home",
+    component: () => import("@/views/Home/Home.vue"),
+    meta: { title: "风就是光" },
+  },
+  {
+    path: "/games",
+    name: "Game",
+    component: () => import("@/views/Games/index.vue"),
+    meta: { title: "小游戏" },
+    children: [
+      {
+        path: "shiershengxiao",
+        name: "ShiErShengXiao",
+        component: () => import("@/views/Games/shiErShengXiao/index.vue"),
+        meta: { title: "十二生肖总动员" },
+      },
+    ],
+  },
+  {
+    path: "/leanRoad",
+    name: "LEANROAD",
+    component: () => import("@/views/LoanRoad/index.vue"),
+    meta: { title: "学习历程" },
+  },
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
+  history: createWebHashHistory(),
+  routes,
 });
 
-router.beforeEach(async to => {
-    if (to.meta.title) {
-        // 判断是否有标题
-        document.title = to.meta.title as string;
-    }
+router.beforeEach(async (to) => {
+  if (to.meta.title) {
+    // 判断是否有标题
+    document.title = to.meta.title as string;
+  }
 });
 
 export default router;
