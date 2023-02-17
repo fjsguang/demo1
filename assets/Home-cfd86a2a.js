@@ -1,1 +1,0 @@
-import{_ as n,r,a as c,c as s,e as o,w as a,f as e,F as _}from"./index-bf65c2b3.js";const l={};function f(m,d){const t=r("RouterLink");return c(),s(_,null,[o(t,{to:"/games"},{default:a(()=>[e("小游戏")]),_:1}),e("   "),o(t,{to:"/leanRoad"},{default:a(()=>[e("学习历程")]),_:1})],64)}const i=n(l,[["render",f]]);export{i as default};
