@@ -5,4 +5,6 @@
     <RouterLink to="/canvas">动画</RouterLink>
     &nbsp;
     <RouterLink to="/leanRoad">学习历程</RouterLink>
+    &nbsp;
+    <RouterLink to="/rectangle">计算两个矩形</RouterLink>
 </template>

@@ -39,6 +39,12 @@ const routes = [
         component: () => import("@/views/LeanRoad/index.vue"),
         meta: { title: "学习历程" },
     },
+    {
+        path: "/rectangle",
+        name: "rectangle",
+        component: () => import("@/views/rectangle/index.vue"),
+        meta: { title: "学习历程" },
+    },
 ];
 
 const router = createRouter({
