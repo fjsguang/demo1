@@ -20,6 +20,10 @@
     <input type="number" id="height3" value="300" />
     <br />
 
+    <label for="width3">精度:</label>
+    <input type="number" id="jingdu" value="0.1" />
+    <br />
+
     <button @click="checkRectangles">获取结果</button>
 
     <div id="tishi"></div>
@@ -54,26 +58,38 @@ function canRectanglesFit(width1, height1, width2, height2, width3, height3) {
   const rect2 = { width: width2, height: height2 };
   const rect3 = { width: width3, height: height3 };
 
-  for (let angle1 = 0; angle1 < 360; angle1++) {
-    for (let angle2 = 0; angle2 < 360; angle2++) {
-      const boundingBox1 = getRotatedBoundingBox(rect1, angle1);
-      const boundingBox2 = getRotatedBoundingBox(rect2, angle2);
+  const jingdu = parseFloat(document.getElementById("jingdu").value);
+  let a = 0;
+
+  for (let angle1 = 0; angle1 < 360 / jingdu; angle1++) {
+    for (let angle2 = 0; angle2 < 360 / jingdu; angle2++) {
+      a++;
+      const boundingBox1 = getRotatedBoundingBox(rect1, angle1 * jingdu);
+      const boundingBox2 = getRotatedBoundingBox(rect2, angle2 * jingdu);
 
       if (canFitInside(boundingBox1, boundingBox2, rect3)) {
         document.querySelector("#tishi").innerHTML =
-          "可以! " + "矩形1旋转角: " + angle1 + "; 矩形2旋转角: " + angle2;
+          "可以! " +
+          "矩形1旋转角: " +
+          angle1 * jingdu +
+          "; 矩形2旋转角: " +
+          angle2 * jingdu +
+          "; 计算了" +
+          a +
+          "次";
 
         return {
           boundingBox1,
           boundingBox2,
-          angle1,
-          angle2,
+          angle1: angle1 * jingdu,
+          angle2: angle2 * jingdu,
         };
       }
     }
   }
 
-  document.querySelector("#tishi").innerHTML = "360度 精度为1度不可以!";
+  document.querySelector("#tishi").innerHTML =
+    "360度 精度为" + jingdu + "度不可以!" + "; 计算了" + a + "次";
 
   return false;
 }
