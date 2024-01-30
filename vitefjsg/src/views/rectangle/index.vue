@@ -4,24 +4,24 @@
 
     <label for="width1">矩形1 宽:</label>
     <input type="number" id="width1" value="200" />
-    <label for="height1">高:</label>
+    <label for="height1">长:</label>
     <input type="number" id="height1" value="100" />
     <br />
 
     <label for="width2">矩形2 宽:</label>
     <input type="number" id="width2" value="100" />
-    <label for="height2">高:</label>
+    <label for="height2">长:</label>
     <input type="number" id="height2" value="200" />
     <br />
 
     <label for="width3">矩形3 宽:</label>
     <input type="number" id="width3" value="300" />
-    <label for="height3">高:</label>
+    <label for="height3">长:</label>
     <input type="number" id="height3" value="300" />
     <br />
 
     <label for="width3">精度:</label>
-    <input type="number" id="jingdu" value="0.1" />
+    <input type="number" id="jingdu" value="0.02" />
     <br />
 
     <button @click="checkRectangles">获取结果</button>
@@ -34,6 +34,7 @@
 
 <script setup>
 function checkRectangles() {
+  document.querySelector("#tishi").innerHTML = ''
   const width1 = parseFloat(document.getElementById("width1").value);
   const height1 = parseFloat(document.getElementById("height1").value);
   const width2 = parseFloat(document.getElementById("width2").value);
@@ -61,8 +62,8 @@ function canRectanglesFit(width1, height1, width2, height2, width3, height3) {
   const jingdu = parseFloat(document.getElementById("jingdu").value);
   let a = 0;
 
-  for (let angle1 = 0; angle1 < 360 / jingdu; angle1++) {
-    for (let angle2 = 0; angle2 < 360 / jingdu; angle2++) {
+  for (let angle1 = 0; angle1 <= 360 / jingdu; angle1++) {
+    for (let angle2 = 0; angle2 <= 360 / jingdu; angle2++) {
       a++;
       const boundingBox1 = getRotatedBoundingBox(rect1, angle1 * jingdu);
       const boundingBox2 = getRotatedBoundingBox(rect2, angle2 * jingdu);
@@ -107,8 +108,20 @@ function getRotatedBoundingBox(rect, angle) {
 
 function canFitInside(box1, box2, rect) {
   return (
-    box1.width + box2.width <= rect.width &&
-    Math.max(box1.height, box2.height) <= rect.height
+    (box1.width + box2.width <= rect.width &&
+      Math.max(box1.height, box2.height) <= rect.height) ||
+    (box1.width + box2.width <= rect.height &&
+      Math.max(box1.height, box2.height) <= rect.width) ||
+      
+    (box1.width + box2.height <= rect.width &&
+      Math.max(box1.height, box2.width) <= rect.height) ||
+    (box1.width + box2.height <= rect.height &&
+      Math.max(box1.height, box2.width) <= rect.width) ||
+
+    (box1.height + box2.width <= rect.width &&
+      Math.max(box1.width, box2.height) <= rect.height) ||
+    (box1.height + box2.width <= rect.height &&
+      Math.max(box1.width, box2.height) <= rect.width)
   );
 }
 
