@@ -19,7 +19,7 @@ onMounted(() => {
   var phoneNumberServer = new Window.PhoneNumberServer();
 
   function getToken() {
-    phoneNumberServer.getLoginToken({
+    phoneNumberServer.getVerifyToken({
       // 成功回调
       success: function (res) {
         // 一键登录: 可发请求到服务端调用 GetPhoneWithToken API, 获取用户手机号, 完成登录
@@ -55,7 +55,7 @@ onMounted(() => {
   }
 
   function checkLogin(jwtToken, accessToken) {
-    phoneNumberServer.checkLoginAvailable({
+    phoneNumberServer.checkAuthAvailable({
       accessToken: accessToken,
       jwtToken: jwtToken,
       success: function (res) {
