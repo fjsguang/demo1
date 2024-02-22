@@ -43,7 +43,13 @@ const routes = [
         path: "/rectangle",
         name: "rectangle",
         component: () => import("@/views/rectangle/index.vue"),
-        meta: { title: "学习历程" },
+        meta: { title: "计算方块" },
+    },
+    {
+        path: "/aliyun",
+        name: "aliyun",
+        component: () => import("@/views/aliyun/index.vue"),
+        meta: { title: "阿里云" },
     },
 ];
 
