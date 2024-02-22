@@ -2,10 +2,15 @@
   <div class="number-auth-demo">
     <h3 class="title">一键登录</h3>
     <a id="J_loginPhone" class="submit-btn">点击按钮一键登录</a>
+    <input v-model="JwtToken" />
+    <input v-model="AccessToken" />
   </div>
 </template>
 
 <script setup lang="ts">
+let JwtToken = ref("");
+let AccessToken = ref("");
+
 onMounted(() => {
   const Window = window as any;
   new Window.VConsole();
@@ -66,15 +71,7 @@ onMounted(() => {
 
   loginPhoneEle.onclick = function () {
     // 调用之前先去用户服务端获取AccessToken和jwtToken
-    var tokenInfo = {
-      JwtToken:
-        "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAyMjBfcG5zX3VuaXFfa2V5In0.eyJqdGkiOiJ4YVlSSnhsclVCZGJvdER2TkNUN2hnIiwiaWF0IjoxNzA4NTcyNTI5LCJleHAiOjE3MDg1NzYxMjksIm5iZiI6MTcwODU3MjQ2OSwic3ViIjoiWU9VUl9TVUJKRUNUIiwiYXVkIjoiWU9VUl9BVURJRU5DRSIsImFsaVVpZCI6IjE3NTI1MDE0NTMyOTc2MjIifQ.MNFlShzzdS3dL7hOgAwz5YRwxeRxk7c4CyW70nOefQ5P5k4B8PRPxE0rRdxvM2s8J-BO_lcl8I4eQYmtC4sjDN6rcw2I0NqTUQHIS_RdpzndDXJ61K25POMb-pPKQwjfGZYmlCQVoQlCpIbuYDs1eTFCUgzTbclg_KppPWyOsI-KmepJG77YwuKY1gB7l98LuW05HNUiiIzdR5D9J3e6AbIil4q0PIGAmVElkSD7mSXv8EI4_Tn4dW4WyvOYpB3pjU9XBYUN1FRv5BOH0tBndpo9wGrY29Q9VHUDhhMQ3PVF0oEa1TtX7yMdoHq4Lscyqd-WMaqeLDcqqgjFksyH4Q",
-      AccessToken:
-        "Zyt8U732FWs/9Dik0enB79TH4n4trWMAc5VKFzc1f4DZf1re+uwJhoW2hY+bd2WotCHLk8EwoFVNhqUy1h4IoA==",
-    };
-    console.log(123);
-
-    checkLogin(tokenInfo.JwtToken, tokenInfo.AccessToken);
+    checkLogin(JwtToken, AccessToken);
   };
 });
 </script>
