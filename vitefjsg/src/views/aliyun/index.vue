@@ -71,7 +71,7 @@ onMounted(() => {
 
   loginPhoneEle.onclick = function () {
     // 调用之前先去用户服务端获取AccessToken和jwtToken
-    checkLogin(JwtToken, AccessToken);
+    checkLogin(JwtToken.value, AccessToken.value);
   };
 });
 </script>
